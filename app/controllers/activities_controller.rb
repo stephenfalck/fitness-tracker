@@ -17,7 +17,8 @@ class ActivitiesController < ApplicationController
 
     def create
         @activity = Activity.new(activity_params)
-        
+        @activity.user = current_user
+
         if @activity.save
             redirect_to @activity
         else
