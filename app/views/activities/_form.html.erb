@@ -1,0 +1,36 @@
+<%= form_with(model: @activity, local: true) do |form| %>
+    <p>
+        <% if @activity.errors.any? %>
+            <div id="error_explanation">
+            <h2>
+                <%= pluralize(@activity.errors.count, "error") %> prohibited
+                this article from being saved:
+            </h2>
+            <ul>
+                <% @activity.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+            </div>
+         <% end %>
+
+      <%= form.label :exercise %><br>
+      <%= form.select(:exercise, options_for_select([['Running', 0], ['Walking', 1], 
+      ['Cycling', 2], ['Swimming', 3], ['Elliptical', 4], ['Rowing', 5], 
+      ['Circuit training', 6], ['HIIT Training', 7], ['Weight training', 8], ['Core training', 9]])) %>
+    </p>
+   
+    <p>
+      <%= form.label :date %><br>
+      <%= form.date_field("date") %>
+    </p>
+
+    <p>
+      <%= form.label :duration, "Duration (minutes)" %><br>
+      <%= form.number_field :duration %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+<% end %>

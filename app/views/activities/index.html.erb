@@ -1,0 +1,28 @@
+<% exercises = ['Running', 'Walking', 'Cycling', 'Swimming', 'Elliptical', 'Rowing', 
+'Circuit training', 'HIIT Training', 'Weight training', 'Core training'] %>
+
+<h1>Activity log</h1>
+
+<%= link_to 'New Entry', new_activity_path %>
+ 
+<table>
+  <tr>
+    <th>Exercise</th>
+    <th>Date</th>
+    <th>Duration</th>
+    <th></th>
+  </tr>
+ 
+  <% @activities.each do |activity| %>
+    <tr>
+      <td><%= exercises[activity.exercise] %></td>
+      <td><%= activity.date %></td>
+      <td><%= activity.duration %> minutes</td>
+      <td><%= link_to 'Show', activity_path(activity) %></td>
+      <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+      <td><%= link_to 'Destroy', activity_path(activity),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

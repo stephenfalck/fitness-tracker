@@ -1,0 +1,21 @@
+<% exercises = ['Running', 'Walking', 'Cycling', 'Swimming', 'Elliptical', 'Rowing', 
+'Circuit training', 'HIIT Training', 'Weight training', 'Core training'] %>
+
+<p>
+<strong>Exercise:</strong>
+<%= exercises[@activity.exercise] %>
+</p>
+
+<p>
+<strong>Date:</strong>
+<%= @activity.date %>
+</p>
+
+<p>
+<strong>Duration:</strong>
+<%= @activity.duration %>
+minutes
+</p>
+
+<td><%= link_to 'Edit', edit_activity_path(@activity) %></td>
+<%= link_to 'Back', activities_path %>
