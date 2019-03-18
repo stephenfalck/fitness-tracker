@@ -1,0 +1,11 @@
+.navbar-default, .navbar-toggle:focus, .collapsed, button.navbar-toggle {
+    background: $navbarColor !important;
+    border: none;
+    a {
+      color: white !important;
+    }
+  }
+
+  body {
+    padding-bottom: 50px;
+}

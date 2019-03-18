@@ -16,6 +16,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-    padding-bottom: 50px;
-}
+// Variables
+@import "base/variables";
+
+//Partials
+@import "partials/layout/*";
