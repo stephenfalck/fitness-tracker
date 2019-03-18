@@ -1,6 +1,12 @@
 class ActivitiesController < ApplicationController
+    before_action :require_author, only: [:edit, :update, :destroy]
+
     def index
-        @activities = Activity.all
+        if user_signed_in?
+            @activities = Activity.all
+        else
+            redirect_to login_path
+        end
     end
 
     def show
@@ -46,5 +52,10 @@ class ActivitiesController < ApplicationController
     private
         def activity_params
             params.require(:activity).permit(:exercise, :date, :duration)
+        end
+
+        def require_author
+            @activity = Activity.find(params[:id])
+            redirect_to(login_path) unless @activity.user == current_user
         end
 end
