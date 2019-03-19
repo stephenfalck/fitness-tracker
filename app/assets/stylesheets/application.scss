@@ -21,6 +21,14 @@
 
 //Partials
 @import "partials/layout/*";
+@import "pages";
 
 //Media queries
 @import "responsive/*";
+
+body {
+    background-image: linear-gradient(to bottom right, #A6686C, #472E3E);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}

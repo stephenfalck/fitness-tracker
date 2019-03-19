@@ -22,8 +22,10 @@ class ActivitiesController < ApplicationController
     end
 
     def create
+        #params[:category] = params[:category].to_i
         @activity = Activity.new(activity_params)
         @activity.user = current_user
+
 
         if @activity.save
             redirect_to @activity
@@ -51,7 +53,7 @@ class ActivitiesController < ApplicationController
 
     private
         def activity_params
-            params.require(:activity).permit(:exercise, :date, :duration)
+            params.require(:activity).permit(:exercise, :date, :duration, :category)
         end
 
         def require_author

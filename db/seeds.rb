@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+def seed_categories 
+    exercises = ['Running', 'Walking', 'Cycling', 'Swimming', 'Elliptical', 'Rowing', 
+    'Circuit training', 'HIIT Training', 'Weight training', 'Core training']
+
+    exercises.each do |name|
+        Category.create(name: name)
+    end
+end
+
+seed_categories

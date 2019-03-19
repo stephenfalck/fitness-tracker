@@ -16,7 +16,7 @@
   <% @activities.each do |activity| %>
     <% if current_user == activity.user %>
       <tr>
-        <td><%= exercises[activity.exercise] %></td>
+        <td><%= activity.category %></td>
         <td><%= activity.date %></td>
         <td><%= activity.duration %> minutes</td>
         <td><%= link_to 'Show', activity_path(activity) %></td>
