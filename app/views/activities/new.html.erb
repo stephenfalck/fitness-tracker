@@ -1,6 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <h1> New Entry </h1>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <%= render 'activity_option_cards' %>
+    </div>
 
-<h1>New Entry</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', activities_path %>
+    <div class="row text-center"
+        <%= link_to 'Back', activities_path %>
+    </div>
+</div>

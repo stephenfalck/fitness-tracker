@@ -22,6 +22,7 @@
 //Partials
 @import "partials/layout/*";
 @import "pages";
+@import "partials/cards";
 
 //Media queries
 @import "responsive/*";
@@ -30,5 +31,14 @@ body {
     background-image: linear-gradient(to bottom right, #A6686C, #472E3E);
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    //height: 100vh;
+    min-height: 100vh;
+    color: white;
+}
+
+.main {
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

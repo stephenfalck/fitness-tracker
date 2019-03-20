@@ -15,6 +15,8 @@ class ActivitiesController < ApplicationController
 
     def new
         @activity = Activity.new
+        #@activity.category = params[:category].to_i
+        find_categories
     end
 
     def edit
@@ -22,7 +24,6 @@ class ActivitiesController < ApplicationController
     end
 
     def create
-        #params[:category] = params[:category].to_i
         @activity = Activity.new(activity_params)
         @activity.user = current_user
 
