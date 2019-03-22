@@ -28,13 +28,13 @@ $(document).ready(function() {
 
         function timeFormatter(timeInMilliseconds) {
             let time = new Date(timeInMilliseconds)
-            //let hours = time.getHours().toString();
+            let hours = time.getHours().toString();
             let minutes = time.getMinutes().toString();
             let seconds = time.getSeconds().toString();
 
-            /*if (hours.length < 2 ) {
+            if (hours.length < 2 ) {
                 hours = "0" + hours;
-            }*/
+            }
             
             if (minutes.length < 2 ) {
                 minutes = "0" + minutes;

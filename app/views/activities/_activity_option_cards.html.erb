@@ -15,7 +15,7 @@
          <% end %>
 </p>
     <% @categories.each do |category| %>
-        <div class="card col-sm-4" id="<%= category.id %>">
+        <div class="card " id="<%= category.id %>">
             <img src="" class="card-img-top" alt="...">
             <div class="card-body">
                 <input type="hidden" name="<%= category.name %>" value="<%= category.id %>">
