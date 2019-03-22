@@ -1,9 +1,34 @@
+<%= form_with(model: @activity, id: 'category_form', url: wizard_path, method: :put) do |form| %>
+<p>
+<% if @activity.errors.any? %>
+            <div id="error_explanation">
+            <h2>
+                <%= pluralize(@activity.errors.count, "error") %> prohibited
+                this article from being saved:
+            </h2>
+            <ul>
+                <% @activity.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+            </div>
+         <% end %>
+</p>
+    <% @categories.each do |category| %>
+        <div class="card col-sm-4" id="<%= category.id %>">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+                <input type="hidden" name="<%= category.name %>" value="<%= category.id %>">
+                
+                    <%#= radio_button_tag(:category, category.id) %>
+                    <%#= label_tag(category.name) %>
 
-<% @categories.each do |category| %>
-    <div class="card col-sm-4" id="<%= category.id %>">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <p class="card-text"><%= category.name %></p>
-    </div>
-    </div>
+                <%= link_to 'Next', next_wizard_path, method: :put %>
+                
+            </div>
+        </div> 
+    <% end %>
+    <%= form.label :category, "ccategory" %><br>
+    <%= form.number_field :category %>
+    <%= form.submit %>
 <% end %>

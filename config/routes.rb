@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
   
+  namespace :activity do
+    get 'build_controller/show'
+    get 'build_controller/update'
+  end
+
   devise_for :users, :controllers => {:registrations => "registrations", :passwords => 'passwords'}
-  resources :activities
+  
+  resources :activities do
+    resources :build, only: [:show, :update], controller: 'activity/build'
+  end
 
   root to: 'pages#index'
 

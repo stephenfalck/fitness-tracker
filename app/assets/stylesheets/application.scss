@@ -23,6 +23,7 @@
 @import "partials/layout/*";
 @import "pages";
 @import "partials/cards";
+@import "activity/build_controller";
 
 //Media queries
 @import "responsive/*";
@@ -34,11 +35,13 @@ body {
     //height: 100vh;
     min-height: 100vh;
     color: white;
+    //padding-bottom: 50px;
 }
 
 .main {
     height: calc(100vh - 100px);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: column;
 }

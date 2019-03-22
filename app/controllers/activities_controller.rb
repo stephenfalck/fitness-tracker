@@ -15,7 +15,6 @@ class ActivitiesController < ApplicationController
 
     def new
         @activity = Activity.new
-        #@activity.category = params[:category].to_i
         find_categories
     end
 
@@ -24,15 +23,20 @@ class ActivitiesController < ApplicationController
     end
 
     def create
-        @activity = Activity.new(activity_params)
-        @activity.user = current_user
+        @activity = Activity.new
+        #@activity.user = current_user
+        @activity.save(validate: false)
+        redirect_to activity_build_path(@activity, Activity.form_steps.first)
 
-
-        if @activity.save
-            redirect_to @activity
-        else
-            render 'new'
-        end
+        #@activity = Activity.new(activity_params)
+        #@activity.user = current_user
+#
+#
+        #if @activity.save
+        #    redirect_to @activity
+        #else
+        #    render 'new'
+        #end
     end
 
     def update
