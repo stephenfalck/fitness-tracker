@@ -28,6 +28,7 @@ $(document).ready(function() {
                     },  
                     error: function (xhr, textStatus, errorThrown) {  
                         console.log('Error in Operation');  
+                        console.log(textStatus)
                     }  
                 });  
         
