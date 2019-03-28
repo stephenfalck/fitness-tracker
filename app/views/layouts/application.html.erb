@@ -11,13 +11,15 @@
 
   <body>
     <%= render 'layouts/navigation/navigation' %>
+
+    <%# if false %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%# these links needed for form but taking up space on page even when not rendered%>
+    <%# end %>
     
     <%= yield %>
 
-    <% if false %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <% end %>
 
     <footer>
       <%= render 'layouts/footer' %>

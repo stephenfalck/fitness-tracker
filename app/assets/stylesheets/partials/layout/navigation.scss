@@ -1,65 +1,23 @@
-.navbar-default, .navbar-toggle:focus, .collapsed, button.navbar-toggle {
-    //background: $navbarColor !important;
-    background: rgba(0,0,0,0.3);
-    border-radius: 0px;
-    border: none;
-    margin: 0px;
-    a {
-      color: white !important;
-    }
-  }
+.navbar {
+  background: $navbarColor !important;
+}
 
-  .pc-menu {
-    margin-right: 10px;
-  }
-  
-  .mobile-menu {
-    i {
-      color: white;
-    }
-    ul {
-      padding: 0px;
-    }
-    a {
-      display: block;
-      padding: 10px 0px 10px 25px !important;
-    }
-    a:hover {
-      background: white !important;
-      color: black !important;
-      i {
-        color: black;
-      }
-    }
-  }
-  
-  .active a {
-    background: $navbarColor !important;
-    border-bottom: solid 5px white;
-  }
-  
+.dropdown-menu {
+  background:  rgba(0,0,0,0.3);
+  border: none;
+}
 
-  .navbar-default .navbar-nav > li > a:hover {
-    background: rgba(0,0,0,0.7);
-    border: none;
-  }
+.navbar-nav .dropdown-menu {
+  margin-top: 8px;
+  margin-right: 10x;
+  border-radius: 0;
+}
 
-  .dropdown-menu {
-    background:  rgba(0,0,0,0.7);
-    border: none;
-  }
-  
-  .dropdown-menu a:hover {
-    color: black !important;
-    background: white !important;
-  }
+.dropdown-item {
+  color: white;
+}
 
-  .navbar-default .navbar-nav > .open > a, 
-  .navbar-default .navbar-nav > .open > a:hover, 
-  .navbar-default .navbar-nav > .open > a:focus {
-    background: rgba(0,0,0,0.7);
-  }
-
-  body {
-    padding-bottom: 50px;
+.dropdown-menu a:hover {
+  color: black !important;
+  background: white !important;
 }
