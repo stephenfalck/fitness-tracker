@@ -1,8 +1,12 @@
-<% exercises = ['Running', 'Walking', 'Cycling', 'Swimming', 'Elliptical', 'Rowing', 
+<% exercises = ['', 'Running', 'Walking', 'Cycling', 'Swimming', 'Elliptical', 'Rowing', 
 'Circuit training', 'HIIT Training', 'Weight training', 'Core training'] %>
 
+<div class="container">
+<div class="row justify-content-center">
 <h1>Activity log</h1>
+</div>
 
+<div class="row">
 <%= link_to 'New Entry', activities_path, method: :post %>
  
 <table>
@@ -16,7 +20,7 @@
   <% @activities.each do |activity| %>
     <% if current_user == activity.user %>
       <tr>
-        <td><%= exercises[activity.category] %></td>
+        <td><%#= @categories.activity.category_id %><%= exercises[activity.category_id] %></td>
         <td><%= activity.date %></td>
         <td><%= activity.duration %> minutes</td>
         <td><%= link_to 'Show', activity_path(activity) %></td>
@@ -28,3 +32,6 @@
     <% end %>
   <% end %>
 </table>
+
+</div>
+</div>

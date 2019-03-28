@@ -1,11 +1,10 @@
 class Activity::BuildController < ApplicationController
   include Wicked::Wizard
-  steps *Activity.form_steps
+
+  steps :category, :datetime
 
   #have to deactivate cross site reference forgery
   protect_from_forgery with: :null_session
-
-  #wrap_parameters format: [:json]
 
   def show
     find_categories
@@ -15,32 +14,39 @@ class Activity::BuildController < ApplicationController
 
   def update
     find_categories
-    #@activity = Activity.find(params[:activity_id])
-
+    
     respond_to do |format|
-      format.html # index.html.erb 
-      format.json do
-        #params[:user_id] = current_user
-        #puts params
+      format.html do
+         @activity = Activity.find(params[:activity_id])
+         @activity.status = step.to_s
+        @activity.status = 'active' if step == steps.last
+        #params[:activity][:status] = step.to_s
+        #params[:activity][:status] = 'active' if step == steps.last
+        #@activity.update_attributes(params[:activity])
+        #@activity.update_attributes(activity_params)
+        render_wizard @activity
+      end
+      
+      format.text do
         @activity = Activity.find(params[:activity_id])
-        @activity.update_attributes(activity_params(step))
+        @activity.status = step.to_s
+        @activity.status = 'active' if step == steps.last
+        #params[:activity][:status] = step.to_s
+        #params[:activity][:status] = 'active' if step == steps.last
+        #@activity.update_attributes(params[:activity])
+        @activity.update_attributes(activity_params)
+        render_wizard @activity
       end
     end
-
-    render_wizard @activity
   end
 
+  def finish_wizard_path
+    activities_path
+  end
+
+
   private
-
-  def activity_params(step)
-  	permitted_attributes = case step
-  	  when "category"
-  	    [:category]
-  	  when "datetime"
-  	    [:date, :duration]
-  	  end
-
-    #params.require(:activity).permit(permitted_attributes).merge(form_step: step)
-    params.permit(permitted_attributes).merge(form_step: step)
+  def activity_params
+      params.require(:activity).permit(:user_id, :date, :duration, :category_id, :status, :activity_id, :id)
   end
 end

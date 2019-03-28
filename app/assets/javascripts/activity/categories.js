@@ -1,27 +1,33 @@
 // on click assign the id of the card to the category param
 
+
 $(document).ready(function() {
     console.log("ready")
-    $('#category_form').submit(function(event) {
-        event.preventDefault();
+    $('.categories').click(function(event) {
+        //event.preventDefault();
         let url = window.location.pathname;
         let pathArray = window.location.pathname.split('/');
         let id = pathArray[2]
-        
-        let value = $('#activity_category').val()
+
+       
+        let value = $(event.target).closest('.card').attr('id')
         value = parseInt(value)
+        
 
 
 
         let activity = {
-            "activity_id": id,
-            "category": value
+            "activity": {
+                //  "activity_id": id,
+                "category_id": value
+                //"status": ""
+            }
         }
         
                 $.ajax({  
                     url: 'http://localhost:3000' + url,  
                     type: 'PUT',  
-                    dataType: 'json',  
+                    dataType: 'text', //'json',  
                     data: activity,  
                     success: function (data, textStatus, xhr) {  
                         console.log(data);  
@@ -35,3 +41,4 @@ $(document).ready(function() {
     });
 
 });
+

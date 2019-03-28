@@ -1,20 +1,27 @@
 class Activity < ApplicationRecord
-    #validates :category, presence: true, if: -> {required_for_step?(:category)}
-    #validates :date, :duration, presence: true, if: -> {required_for_step?(:datetime)}
+    validates :category, presence: true, if: :active_or_category?
+    validates :date, :duration, presence: true, if: :active_or_datetime?
 
-    attr_accessor :form_step
+    before_save :convert_category
 
-    cattr_accessor :form_steps do 
-        %w(category datetime)
-    end
+    def active?
+        status == 'active'
+      end
 
-    def required_for_step?(step)
+      def active_or_category?
+        status.include?('category') || active?
+      end
 
-        return true if form_step.nil?
+      def active_or_datetime?
+        status.include?('datetime') || active?
+      end
 
-        return true if self.form_steps.index(step.to_s) <= self.form_steps.index(form_step)
-    end
 
     belongs_to :user
     belongs_to :category
+
+    private 
+    def convert_category 
+        self[:category_id] = self[:category_id].to_i
+    end
 end

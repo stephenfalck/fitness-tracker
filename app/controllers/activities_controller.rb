@@ -2,6 +2,7 @@ class ActivitiesController < ApplicationController
     before_action :require_author, only: [:edit, :update, :destroy]
 
     def index
+        find_categories
         if user_signed_in?
             @activities = Activity.all
         else
@@ -24,19 +25,9 @@ class ActivitiesController < ApplicationController
 
     def create
         @activity = Activity.new
-        #@activity.user = current_user
+        @activity.user = current_user
         @activity.save(validate: false)
-        redirect_to activity_build_path(@activity, Activity.form_steps.first)
-
-        #@activity = Activity.new(activity_params)
-        #@activity.user = current_user
-#
-#
-        #if @activity.save
-        #    redirect_to @activity
-        #else
-        #    render 'new'
-        #end
+        redirect_to activity_build_path :category, :activity_id => @activity.id
     end
 
     def update
@@ -58,7 +49,7 @@ class ActivitiesController < ApplicationController
 
     private
         def activity_params
-            params.require(:activity).permit(:exercise, :date, :duration, :category)
+            params.require(:activity).permit(:user_id, :date, :duration, :category_id, :status)
         end
 
         def require_author

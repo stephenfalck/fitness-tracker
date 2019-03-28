@@ -122,14 +122,16 @@ $(document).ready(function() {
         console.log(formattedDate)
 
         const dateTime = {
-            "date": formattedDate,
-            "duration": timeElapsed
+            "activity": {
+                "date": formattedDate,
+                "duration": timeElapsed
+            }
         }
 
         $.ajax({  
             url: 'http://localhost:3000' + url,  
             type: 'PUT',  
-            dataType: 'json',  
+            dataType: 'text', //'json'  
             data: dateTime,  
             success: function (data, textStatus, xhr) {  
                 console.log(data);  
@@ -140,6 +142,5 @@ $(document).ready(function() {
             }  
         });  
     })
-
-   
+  
 });
