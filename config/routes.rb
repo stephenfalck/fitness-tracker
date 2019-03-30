@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  
-  devise_for :users, :controllers => {:registrations => "registrations", :passwords => 'passwords'}
-  resources :activities
 
   root to: 'pages#index'
+  
+  devise_for :users, :controllers => {:registrations => "registrations", :passwords => 'passwords'}
+
+  resources :activities, except: :show, path_names: { new: 'categories/:id/timer' } 
+
+  scope '/activities' do
+    resources :categories, only: [:index]
+  end
+
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

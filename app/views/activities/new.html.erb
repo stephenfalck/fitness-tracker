@@ -1,14 +1,19 @@
-<div class="container">
-    <div class="row">
-        <div class="text-center">
-            <h1> New Entry </h1>
-        </div>
+<div class="container text-center main">
+
+    <h1 id="timer-header">Timer</h1>
+
+<div class="jumbotron">
+
+
+    <div class="row justify-content-center">
+        <h1 id="timer">00 : 00</h1>
     </div>
     <div class="row justify-content-center">
-        <%= render 'activity_option_cards' %>
+        <button type="button" class="btn btn-lg btn-outline-success" id="toggle">Start</button> 
+        <button type="button" class="btn btn-lg btn-outline-primary" id="reset">Reset</button>
     </div>
-
-    <div class="row text-center">
-        <%= link_to 'Back', activities_path %>
+    <div class="row justify-content-center">
+        <button type="button" class="btn btn-lg btn-secondary" id="save">Save</button>
     </div>
+</div>
 </div>

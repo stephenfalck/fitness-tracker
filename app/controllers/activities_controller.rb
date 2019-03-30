@@ -1,6 +1,9 @@
 class ActivitiesController < ApplicationController
     before_action :require_author, only: [:edit, :update, :destroy]
 
+    #have to deactivate cross site reference forgery
+    protect_from_forgery with: :null_session
+
     def index
         if user_signed_in?
             @activities = Activity.all
@@ -15,7 +18,6 @@ class ActivitiesController < ApplicationController
 
     def new
         @activity = Activity.new
-        #@activity.category = params[:category].to_i
         find_categories
     end
 
@@ -25,11 +27,13 @@ class ActivitiesController < ApplicationController
 
     def create
         @activity = Activity.new(activity_params)
-        @activity.user = current_user
-
+        @activity.user_id = current_user.id
+        #@activity.update_attribute(:user_id, current_user.id)
+        #puts current_user.id
+        @activity.save!
 
         if @activity.save
-            redirect_to @activity
+            redirect_to activities_path
         else
             render 'new'
         end
@@ -54,7 +58,7 @@ class ActivitiesController < ApplicationController
 
     private
         def activity_params
-            params.require(:activity).permit(:exercise, :date, :duration, :category)
+            params.require(:activity).permit(:date, :duration, :category_id).merge(user_id: current_user.id)
         end
 
         def require_author
