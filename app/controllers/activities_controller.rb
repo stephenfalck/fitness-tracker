@@ -28,8 +28,6 @@ class ActivitiesController < ApplicationController
     def create
         @activity = Activity.new(activity_params)
         @activity.user_id = current_user.id
-        #@activity.update_attribute(:user_id, current_user.id)
-        #puts current_user.id
         @activity.save!
 
         if @activity.save

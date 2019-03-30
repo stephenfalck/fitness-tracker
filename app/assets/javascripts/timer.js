@@ -119,7 +119,7 @@ $(document).ready(function() {
         let id = pathArray[3]
 
         const date = new Date();
-        const mm = String(date.getMonth()).padStart(2, '0');
+        const mm = String(date.getMonth() + 1).padStart(2, '0');
         const dd = String(date.getDate()).padStart(2, '0');
         const formattedDate = `${date.getFullYear()}-${mm}-${dd}`
         console.log(formattedDate)
