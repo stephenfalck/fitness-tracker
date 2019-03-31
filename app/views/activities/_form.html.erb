@@ -1,38 +1,41 @@
-<%= form_with(model: @activity, local: true) do |form| %>
-    <p>
-        <% if @activity.errors.any? %>
-            <div id="error_explanation">
-            <h2>
-                <%= pluralize(@activity.errors.count, "error") %> prohibited
-                this article from being saved:
-            </h2>
-            <ul>
-                <% @activity.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-                <% end %>
-            </ul>
+
+  <%= bootstrap_form_for(@activity, action: "update") do |form| %>
+      <p>
+          <% if @activity.errors.any? %>
+              <div id="error_explanation">
+              <h2>
+                  <%= pluralize(@activity.errors.count, "error") %> prohibited
+                  this article from being saved:
+              </h2>
+              <ul>
+                  <% @activity.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                  <% end %>
+              </ul>
+              </div>
+          <% end %>  
+      
+      <div class="form-row">
+        <%= form.select :category_id, [["Running", 1], ['Walking', 2], 
+        ['Cycling', 3], ['Swimming', 4], ['Elliptical', 5], ['Rowing', 6], 
+        ['Circuit training', 7], ['HIIT Training', 8], ['Weight training', 9], ['Core training', 10]], { label: "Activity", 
+        wrapper: { class: "offset-md-3 col-md-6 col-sm-12"} }, { class: "selectpicker" } %>
+      </div>
+
+      <div class="form-row">
+        <%= form.date_field :date, wrapper: { class: "offset-md-3 col-md-6 col-sm-12"}  %>
+      </div>
+
+      <div class="form-row">
+        <%= form.number_field :duration, { label: "Duration (minutes)", wrapper: { class: "offset-md-3 col-md-6 col-sm-12"}} %>
+      </div>
+    
+        
+          <div class="form-row justify-content-between px-1">
+          <div class="offset-md-3 col-md-6 col-sm-12 p-0">
+            <%= form.submit "Update activity", class: "btn btn-block btn-info mt-2" %>
             </div>
-         <% end %>
-
-         
-    <p>
-    <%= form.label :exercise %><br>
-      <%= form.select(:category, options_for_select([["Running", 1], ['Walking', 2], 
-      ['Cycling', 3], ['Swimming', 4], ['Elliptical', 5], ['Rowing', 6], 
-      ['Circuit training', 7], ['HIIT Training', 8], ['Weight training', 9], ['Core training', 10]])) %>
-    </p>
-
-    <p>
-      <%= form.label :date %><br>
-      <%= form.date_field("date") %>
-    </p>
-
-    <p>
-      <%= form.label :duration, "Duration (minutes)" %><br>
-      <%= form.number_field :duration %>
-    </p>
-   
-    <p>
-      <%= form.submit %>
-    </p>
-<% end %>
+          </div>
+        
+      
+  <% end %>

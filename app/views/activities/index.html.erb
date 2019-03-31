@@ -6,32 +6,37 @@
 <h1>Activity log</h1>
 </div>
 
-<div class="row">
-<%= link_to 'New Entry', categories_path, method: :get %>
- 
-<table>
-  <tr>
-    <th>Exercise</th>
-    <th>Date</th>
-    <th>Duration</th>
-    <th></th>
-  </tr>
- 
-  <% @activities.each do |activity| %>
+<div class="row justify-content-center">
+
+<% @activities.each do |activity| %>
     <% if current_user == activity.user %>
-      <tr>
-        <td><%#= @categories.activity.category_id %><%= exercises[activity.category_id] %></td>
-        <td><%= activity.date %></td>
-        <td><%= activity.duration %> minutes</td>
-        <td><%= link_to 'Show', activity_path(activity) %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity_path(activity),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="card col-sm-6 col-md-3 activities" id="<%= activity.category_id %>">
+        
+        <img src="" class="card-img-top" alt="...">
+        
+        
+        <div class="card-body">
+          <h4 class="card-title"><%= exercises[activity.category_id] %></h4>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Duration: <%= activity.duration %></li>
+            <li class="list-group-item">Date: <%= activity.date %></li>
+          </ul>
+        
+        <div class="card-body">
+          <%= link_to 'Edit', edit_activity_path(activity), class: "card-link" %>
+          <%= link_to 'Destroy', activity_path(activity),
+            method: :delete,
+            class: "card-link",
+            data: { confirm: 'Are you sure?' } %>
+        </div>
+
+        </div>
+        
+    
     <% end %>
   <% end %>
-</table>
 
 </div>
+ <%= link_to 'New Entry', categories_path, method: :get %>
 </div>

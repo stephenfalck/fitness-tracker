@@ -3,10 +3,10 @@
     
     <div class="card col-sm-6 col-md-3 categories" id="<%= category.id %>">
         <%=  link_to new_activity_path(category.id) do%>
-        <img src="" class="card-img-top" alt="...">
+        <img src="" class="card-img-top category-card-images" alt="...">
         <% end %>
         <div class="card-body">
-            <p class="card-title"><%= category.name %></p>
+            <h4 class="card-title"><%= category.name %></h4>
         </div>
     </div>
     
