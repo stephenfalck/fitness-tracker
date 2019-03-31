@@ -12,12 +12,12 @@
   <body>
     <%= render 'layouts/navigation/navigation' %>
 
-    <% if false %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%# these links needed for form but taking up space on page even when not rendered%>
+    <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
     <% end %>
-    
+      
     <%= yield %>
 
 

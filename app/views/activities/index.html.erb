@@ -2,15 +2,15 @@
 'Circuit training', 'HIIT Training', 'Weight training', 'Core training'] %>
 
 <div class="container">
-<div class="row justify-content-center">
-<h1>Activity log</h1>
-</div>
+  <div class="row text-center">
+    <h1 class="w-100">Activity log</h1>
+  </div>
 
 <div class="row justify-content-center">
 
 <% @activities.each do |activity| %>
     <% if current_user == activity.user %>
-      <div class="card col-sm-6 col-md-3 activities" id="<%= activity.category_id %>">
+      <div class="card col-sm-12 col-md-4 activities" id="<%= activity.category_id %>">
         
         <img src="" class="card-img-top" alt="...">
         

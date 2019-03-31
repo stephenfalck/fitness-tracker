@@ -7,11 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 def seed_categories 
-    exercises = ['Running', 'Walking', 'Cycling', 'Swimming', 'Elliptical', 'Rowing', 
-    'Circuit training', 'HIIT Training', 'Weight training', 'Core training']
+    exercises = [
+        ['Running', 'running-1705716_1280.jpg'],
+        ['Walking', 'walking343.jpg'],
+        ['Cycling', 'cycling5435.jpg'],
+        ['Swimming', 'swimming6534.jpg'],
+        ['Elliptical', 'elliptical38247.jpg'],
+        ['Rowing', 'rowing-machine423.jpg'], 
+        ['Circuit training', 'circuit-training5432.jpg'],
+        ['HIIT Training', 'exercive-ropes.jpg'],
+        ['Weight training', 'barbell-equipment-exercise-equipment-949132.jpg'],
+        ['Core training', 'core-exercise247y.jpg']]
 
-    exercises.each do |name|
-        Category.create(name: name)
+    exercises.each do |name, image|
+        Category.create(name: name, image: image)
     end
 end
 
