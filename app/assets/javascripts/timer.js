@@ -1,9 +1,14 @@
- $(document).ready(function() {
+ //$(document).ready(function() {
 
-   //document.addEventListener("turbolinks:load", function() {
-        // ...
+   document.addEventListener("turbolinks:load", function() {
+
+    if (!($('body').data('controller') === 'activities' && $('body').data('action') === 'new')) {
+        return ;
+    }
       
     /*  STOPWATCH FUNCTIONALITY  */
+
+    
     let timeElapsed = 0;
 
     function Stopwatch(e) {
@@ -72,9 +77,8 @@
                 interval = null;
                 this.isOn = false;
                 timeElapsed += (stopTime - startTime);
-                //Math.floor(timeElapsed /1000) to get the answer in seconds. divide by 10000 to get minutes
                 timeElapsed = Math.floor(timeElapsed /60000)
-                console.log(timeElapsed);
+                //console.log(timeElapsed);
             }
         }
 
