@@ -10,20 +10,15 @@
 
 <% @activities.each do |activity| %>
     <% if current_user == activity.user %>
-      <div class="card col-sm-12 col-md-4 activities" id="<%= activity.category_id %>">
+      <div class="card col-sm-12 col-md-3 activities text-white bg-info p-0" id="<%= activity.category_id %>">
+        <div class="card-header text-center"><%= activity.date %></div>
         
-        <img src="" class="card-img-top" alt="...">
-        
-        
-        <div class="card-body">
+        <div class="card-body text-center">
           <h4 class="card-title"><%= exercises[activity.category_id] %></h4>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Duration: <%= activity.duration %></li>
-            <li class="list-group-item">Date: <%= activity.date %></li>
-          </ul>
+          <p class="card-text"><%= activity.duration %> minutes</p>
+        </div>
         
-        <div class="card-body">
+        <div class="card-footer text-center">
           <%= link_to 'Edit', edit_activity_path(activity), class: "card-link" %>
           <%= link_to 'Destroy', activity_path(activity),
             method: :delete,
@@ -31,7 +26,7 @@
             data: { confirm: 'Are you sure?' } %>
         </div>
 
-        </div>
+      </div>
         
     
     <% end %>

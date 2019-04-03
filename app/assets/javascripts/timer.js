@@ -1,6 +1,6 @@
-$(document).ready(function() {
+ $(document).ready(function() {
 
-   // document.addEventListener("turbolinks:load", function() {
+   //document.addEventListener("turbolinks:load", function() {
         // ...
       
     /*  STOPWATCH FUNCTIONALITY  */
@@ -73,6 +73,7 @@ $(document).ready(function() {
                 this.isOn = false;
                 timeElapsed += (stopTime - startTime);
                 //Math.floor(timeElapsed /1000) to get the answer in seconds. divide by 10000 to get minutes
+                timeElapsed = Math.floor(timeElapsed /60000)
                 console.log(timeElapsed);
             }
         }
