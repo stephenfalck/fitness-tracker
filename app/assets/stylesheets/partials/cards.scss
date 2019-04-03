@@ -26,3 +26,49 @@
 .card-img-overlay {
     padding: 0;
 }
+
+.card-link {
+    color: white;
+    //font-style: italic;
+    text-decoration: underline;
+}
+
+.running-card {
+    background: $red;
+}
+
+.swimming-card {
+    background: $blue;
+}
+
+.rowing-card {
+    background: $lightblue;
+}
+
+.hiit-card {
+    background: $gold;
+}
+
+.cycling-card {
+    background: $greyblue;
+}
+
+.weight-card {
+    background: $lightpurple;
+}
+
+.circuit-card {
+    background: $peach;
+}
+
+.elliptical-card {
+    background: $green;
+}
+
+.core-card {
+    background: $pink;
+}
+
+.walking-card {
+    background: $darkpurple;
+}

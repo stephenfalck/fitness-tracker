@@ -6,7 +6,8 @@ class ActivitiesController < ApplicationController
 
     def index
         if user_signed_in?
-            @activities = Activity.all
+            find_categories
+            @activities = Activity.all.order(date: :desc, created_at: :desc)
         else
             redirect_to login_path
         end
