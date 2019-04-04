@@ -35,11 +35,12 @@ body {
     //height: 100vh;
     min-height: 100vh;
     color: white;
-    //padding-bottom: 50px;
+    padding-bottom: 150px;
+    position: relative;
 }
 
 .main {
-    height: calc(100vh - 150px);
+    height: calc(100vh - 206px);
     display: flex;
     justify-content: center;
     align-items: center;

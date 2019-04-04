@@ -5,7 +5,5 @@ module NavigationHelper
         else
             'layouts/navigation/collapsible_elements/non_signed_in_links'
         end
-
     end
-
 end

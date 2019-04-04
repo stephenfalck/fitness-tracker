@@ -1,7 +1,9 @@
 require 'navigation_helper.rb'
+require 'footer_helper.rb'
 
 module ApplicationHelper
     include NavigationHelper
+    include FooterHelper
 
     def flash_class(level)
         case level

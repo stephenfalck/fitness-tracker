@@ -3,8 +3,11 @@
     <h1 class="w-100">Activity log</h1>
   </div>
 
-<div class="row justify-content-center">
+  <div class="row">
+    <%= link_to 'Create new entry...', categories_path, method: :get %>
+  </div>
 
+<div class="row justify-content-center pb-4">
 <% @activities.each do |activity| %>
     <% if current_user == activity.user %>
       <div class="card col-sm-12 col-md-3 activities text-white p-0 <%= activity_card_class(activity)%>" id="<%= activity.category_id %>">
@@ -29,7 +32,3 @@
     
     <% end %>
   <% end %>
-
-</div>
- <%= link_to 'New Entry', categories_path, method: :get %>
-</div>
