@@ -1,13 +1,13 @@
 
 <% @categories.each do |category| %>
-    
-    <div class="card bg-dark text-white col-sm-6 col-md-3 categories" id="<%= category.id %>">
-        <%= image_tag "#{category.image}", class: "card-img category-card-images", alt: "..."  %>
-        <%=  link_to new_activity_path(category.id) do%>
-            <div class="card-img-overlay">
-                <h4 class="card-title text-center category-card-title"><%= category.name %></h4>
-            </div>
-        <% end %>
+    <div class="col-sm-6 col-md-4 p-0">
+        <div class="card text-white categories" id="<%= category.id %>">
+            <%= image_tag "#{category.image}", class: "card-img category-card-images", alt: "#{category.name} image"  %>
+            <%=  link_to new_activity_path(category.id) do%>
+                <div class="card-img-overlay">
+                    <h4 class="card-title text-center category-card-title"><%= category.name %></h4>
+                </div>
+            <% end %>
+        </div>
     </div>
-    
 <% end %>

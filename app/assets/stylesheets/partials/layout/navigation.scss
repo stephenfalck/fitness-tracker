@@ -21,3 +21,10 @@
   color: black !important;
   background: white !important;
 }
+
+@media only screen and (max-width: 767px) {
+  .dropdown-menu {
+      background:  rgba(0,0,0,0);
+      border: none;
+    }
+}
