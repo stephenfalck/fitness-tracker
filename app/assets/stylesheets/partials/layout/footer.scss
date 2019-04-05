@@ -13,12 +13,12 @@ footer {
     padding-top: 2px;
     padding-bottom: 4px;
     font-size: 1.1rem;
-    max-width: 90px
+    width: 100px
 }
 
 @media only screen and (max-width: 425px) {
     .footer-nav {
-        max-width: none;
+        width: auto;
         height: auto;
         font-size: 1rem;
         justify-content: space-around;
@@ -41,12 +41,21 @@ footer {
     color: rgba(255,255,255,0.7);
 }
 
+.footer-nav li a:hover {
+    color: rgba(255,255,255,1.0);
+}
+
 #social-div {
     color: rgba(255,255,255,0.7);
 }
 
 #social-div a {
     color: rgba(255,255,255,0.7);
+}
+
+#social-div i:hover {
+    color: rgba(255,255,255,1.0);
+    text-decoration: none;
 }
 
 #social-div p {

@@ -5,3 +5,11 @@
 #create-new-post-icon {
     font-size: 3rem;
 }
+
+#create-new-post-icon a {
+    color: white;
+}
+
+#create-new-post-icon a:hover {
+    color: $primary;
+}

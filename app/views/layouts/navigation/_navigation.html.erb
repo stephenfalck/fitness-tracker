@@ -1,11 +1,14 @@
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark justify-content-between">
-    <%= link_to 'Moove and Groove', root_path, class: 'navbar-brand px-2' %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      <div class="collapse navbar-collapse col-sm-4 justify-content-end" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <%= render collapsible_links_partial_path %>
-        </ul>
+  <div class="container">
+      <%= link_to 'Moove and Groove', root_path, class: 'navbar-brand px-2', id: 'logo' %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse col-sm-4 justify-content-end" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <%= render collapsible_links_partial_path %>
+          </ul>
+        </div>
       </div>
 </nav>
