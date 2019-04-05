@@ -1,34 +1,40 @@
-<div class="container">
-  <div class="row text-center">
-    <h1 class="w-100">Activity log</h1>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <h1 class="mt-2">Activity log</h1>
   </div>
 
-  <div class="row">
-    <%= link_to 'Create new entry...', categories_path, method: :get %>
+  <div class="row justify-content-center my-2">
+      <span id="create-new-post-icon">
+        <%= link_to categories_path, method: :get do %>
+          <i class="fas fa-plus-square"></i>
+        <% end %>
+      </span>
   </div>
 
-<div class="row justify-content-center pb-4">
-<% @activities.each do |activity| %>
-    <% if current_user == activity.user %>
-      <div class="card col-sm-12 col-md-3 activities text-white p-0 <%= activity_card_class(activity)%>" id="<%= activity.category_id %>">
-        <div class="card-header text-center"><%= formatted_date(activity) %></div>
-        
-        <div class="card-body text-center">
-          <h4 class="card-title"><%= exercise_name(activity) %></h4>
-          <p class="card-text"><%= activity.duration %> minutes</p>
+  <div class="row justify-content-center">
+    <% @activities.each do |activity| %>
+      <% if current_user == activity.user %>
+        <div class="col-sm-12 col-md-4 p-0">
+          <div class="card activities text-white p-0 <%= activity_card_class(activity)%>" id="<%= activity.category_id %>">
+            <div class="card-header text-center"><%= formatted_date(activity) %></div>
+          
+            <div class="card-body text-center">
+              <h4 class="card-title"><%= exercise_name(activity) %></h4>
+              <p class="card-text"><%= activity.duration %> minutes</p>
+            </div>
+            
+            <div class="card-footer text-center">
+              <%= link_to 'Edit', edit_activity_path(activity), class: "card-link" %>
+              <span class="mx-1">|</span>
+              <%= link_to 'Delete', activity_path(activity),
+                method: :delete,
+                class: "card-link",
+                data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
         </div>
-        
-        <div class="card-footer text-center">
-          <%= link_to 'Edit', edit_activity_path(activity), class: "card-link" %>
-          <span class="mx-1">|</span>
-          <%= link_to 'Delete', activity_path(activity),
-            method: :delete,
-            class: "card-link",
-            data: { confirm: 'Are you sure?' } %>
-        </div>
-
-      </div>
-        
-    
+      
+      <% end %>
     <% end %>
-  <% end %>
+  </div> 
+</div> 

@@ -1,12 +1,16 @@
-<li class="nav-item">
-    <%= link_to 'Home', root_path, class:"nav-link" %>
-</li>
-<li class="nav-item">
-    <%= link_to 'Activity', activities_path, class:"nav-link" %>
-</li>
-<li class="nav-item">
-    <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link" %>
-</li>
-<li class="nav-item">
-    <%= link_to 'Log out', destroy_user_session_path, method: :delete, class:"nav-link" %>
-</li>
+<div class="col-md-2 order-1 order-sm-2">
+    <ul class="nav flex-row footer-nav">
+        <li class="nav-item">
+            <%= link_to 'Home', root_path, class:"nav-link" %>
+        </li><br />
+        <li class="nav-item">
+            <%= link_to 'Activity', activities_path, class:"nav-link" %>
+        </li><br />
+        <li class="nav-item">
+            <%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link" %>
+        </li><br />
+        <li class="nav-item">
+            <%= link_to 'Log out', destroy_user_session_path, method: :delete, class:"nav-link" %>
+        </li>
+    </ul>
+</div>
