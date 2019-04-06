@@ -1,3 +1,12 @@
 .button_to {
     width: 100%;
 }
+
+#login-links a {
+    color: white;
+}
+
+#login-links a:hover {
+    font-weight: bold;
+    color: $primary;
+}

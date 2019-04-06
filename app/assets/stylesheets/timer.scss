@@ -1,0 +1,24 @@
+#timer-page {
+    height: calc(100vh - 206px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#timer-jumbo {
+    width: 55%;
+}
+
+@media only screen and (max-width: 425px) {
+    #timer-jumbo {
+        width: 85%;
+    }
+} 
+
+@media only screen and (max-width: 320px) {
+    #timer-jumbo {
+        width: 95%;
+    }
+} 

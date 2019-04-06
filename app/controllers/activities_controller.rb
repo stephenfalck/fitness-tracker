@@ -1,9 +1,6 @@
 class ActivitiesController < ApplicationController
     before_action :require_author, only: [:edit, :update, :destroy]
 
-    #have to deactivate cross site reference forgery
-    #protect_from_forgery with: :null_session
-
     def index
         if user_signed_in?
             find_categories

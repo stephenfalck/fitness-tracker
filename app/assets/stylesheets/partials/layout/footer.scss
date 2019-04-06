@@ -16,6 +16,11 @@ footer {
     width: 100px
 }
 
+/* DONT THINK THESE LINKS ARE NECESSARY SO HAVE REMOVED. CAN BE RE-ADDED IF NEEDED FOR VALIDATION*/
+#non-signed-in-footer-links {
+    display: none;
+}
+
 @media only screen and (max-width: 425px) {
     .footer-nav {
         width: auto;

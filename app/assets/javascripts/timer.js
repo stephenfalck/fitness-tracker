@@ -1,6 +1,6 @@
- //$(document).ready(function() {
+document.addEventListener("turbolinks:load", function() {
 
-   document.addEventListener("turbolinks:load", function() {
+    Turbolinks.clearCache();
 
     if (!($('body').data('controller') === 'activities' && $('body').data('action') === 'new')) {
         return ;
