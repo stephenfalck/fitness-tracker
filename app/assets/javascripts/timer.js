@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
 
-    Turbolinks.clearCache();
+    
 
     if (!($('body').data('controller') === 'activities' && $('body').data('action') === 'new')) {
         return ;
@@ -122,6 +122,8 @@ document.addEventListener("turbolinks:load", function() {
         let url = window.location.pathname;
         let pathArray = window.location.pathname.split('/');
         let id = pathArray[3]
+
+        Turbolinks.clearCache();
 
         const date = new Date();
         const mm = String(date.getMonth() + 1).padStart(2, '0');
